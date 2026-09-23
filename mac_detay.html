@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ mac.ev }} - {{ mac.deplasman }} Canlı Anlatım</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: #fff; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #1e293b; padding: 25px; border-radius: 12px; }
+        .skor-tahtasi { text-align: center; background: #334155; padding: 20px; border-radius: 10px; margin-bottom: 20px; }
+        .skor { font-size: 36px; color: #22c55e; font-weight: bold; }
+        .istatistik { display: flex; justify-content: space-around; background: #0f172a; padding: 10px; border-radius: 8px; margin-bottom: 20px; }
+        .anlatim-item { border-left: 3px solid #38bdf8; padding-left: 15px; margin-bottom: 15px; background: #334155; padding: 10px; border-radius: 0 8px 8px 0; }
+        .dakika { color: #f59e0b; font-weight: bold; }
+        a { color: #38bdf8; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/">⬅ Ana Sayfaya Dön</a>
+        
+        <div class="skor-tahtasi">
+            <small>{{ mac.lig }}</small>
+            <h1>{{ mac.ev }} vs {{ mac.deplasman }}</h1>
+            <div class="skor">{{ mac.skor }}</div>
+            <p style="color:#f59e0b">{{ mac.durum }}</p>
+        </div>
+
+        <h3>📈 Maç İstatistikleri</h3>
+        <div class="istatistik">
+            <div>Topla Oynama: <strong>{{ mac.istatistik.topla_oynama }}</strong></div>
+            <div>Şut: <strong>{{ mac.istatistik.sut }}</strong></div>
+            <div>Faul: <strong>{{ mac.istatistik.faul }}</strong></div>
+            <div>Sarı Kart: <strong>{{ mac.istatistik.sari_kart }}</strong></div>
+        </div>
+
+        <h3>⚡ Canlı Anlatım & Olaylar</h3>
+        {% for olay in mac.canli_anlatim %}
+            <div class="anlatim-item">
+                <span class="dakika">{{ olay.dakika }}</span> - {{ olay.olay }}
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

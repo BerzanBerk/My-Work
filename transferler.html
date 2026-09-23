@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Transfer Haberleri</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: #fff; padding: 20px; }
+        .container { max-width: 800px; margin: auto; background: #1e293b; padding: 25px; border-radius: 12px; }
+        a { color: #38bdf8; text-decoration: none; }
+        .item { background: #334155; padding: 15px; border-radius: 8px; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/">⬅ Ana Sayfaya Dön</a>
+        <h2>🔥 Özel Transfer Haberleri ve Dedikodular</h2>
+        {% for h in haberler %}
+            <div class="item">
+                🚨 <a href="{{ h.link }}" target="_blank" style="font-weight:bold; font-size:16px;">{{ h.baslik }}</a>
+            </div>
+        {% else %}
+            <p>Şu an aktif transfer haberi bulunamadı.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>
